@@ -2,9 +2,13 @@ package com.example.meepappsample.api
 
 import com.example.meepappsample.model.ResponseModel
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("v1/routers/lisboa/resources?lowerLeftLatLon=38.711046,-9.160096&upperRightLatLon=38.739429,-9.137115")
-    suspend fun getCharacters(): List<ResponseModel>
+    @GET("v1/routers/lisboa/resources")
+    suspend fun getCharacters(
+        @Query("lowerLeftLatLon") lowerLeftLatLon: String,
+        @Query("upperRightLatLon") upperRightLatLon: String,
+    ): List<ResponseModel>
 }

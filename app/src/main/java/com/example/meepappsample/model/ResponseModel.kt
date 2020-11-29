@@ -26,7 +26,6 @@ data class ResponseModel(
 )
 
 enum class Model {
-    Askoll
 }
 
 enum class ResourceImageID {

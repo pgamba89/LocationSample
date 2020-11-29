@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -19,7 +20,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
-
 
 @AndroidEntryPoint
 class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener {
@@ -99,7 +99,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener {
     }
 
     private fun getAddress(latLng: LatLng): List<Address> {
-        val geocoder = Geocoder(context, Locale.getDefault())
-        return geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
+        val geocode = Geocoder(context, Locale.getDefault())
+        return geocode.getFromLocation(latLng.latitude, latLng.longitude, 1)
     }
 }
